@@ -13,7 +13,7 @@ logoWidth, logoHeight = logoIm.size
 
 os.makedirs('withLogo', exist_ok=True)
 
-for filename in os.listdir('originals'):
+for filename in os.listdir('.'):
     if not(filename.endswith('.png') or filename.endswith('.jpg'))\
        or filename == LOGO_FILENAME:
         continue
@@ -35,15 +35,15 @@ for filename in os.listdir('originals'):
             height = SQUARE_FIT_SIZE
 
 #Resize the image.
-        print('Resizing %s...' %(filename))
-        im = im.resize((width, height))
+    print('Resizing %s...' %(filename))
+    im = im.resize((width, height))
         
 #TODO: Add the logo.
 
-print('Adding logo to %s...' % (filename))
-im.paste(logoIm, (width - logoWidth, height - logoHeight), logoIm)
+    print('Adding logo to %s...' % (filename))
+    im.paste(logoIm, (width - logoWidth, height - logoHeight), logoIm)
 
 #TODO: Save changes.
-im.save(os.path.join('withLogo', filename))
+    im.save(os.path.join('withLogo', filename))
 
 
